@@ -107,7 +107,7 @@ for column in hist_columns:
     plt.tight_layout()  
     plt.show()  
 
-    # 9. Countplot for categorical columns and target
+  # 9. Countplot for categorical columns and target
 categorical_columns = df.select_dtypes(include=["object", "category", "bool"]).columns.tolist()
 
 # Include binary target/indicator columns where available.
@@ -126,7 +126,7 @@ for column in categorical_columns:
     plt.show()  
 
 
-    # 10. Bivariate analysis: scatter plots
+ # 10. Bivariate analysis: scatter plots
 # Use relevant columns if they exist in the dataset.
 scatter_pairs = [
     ("Age", "Totalcholestrol"),
@@ -151,7 +151,7 @@ if available_pairs:
 else:
     print("No matching column pairs were found for scatter plots.")  
 
-    # 11. Multivariate analysis: pairplot
+ # 11. Multivariate analysis: pairplot
 # Select a small set of useful numeric columns to keep the pairplot readable.
 preferred_pairplot_cols = [
     col for col in ["Age", "Totalcholestrol", "BMI", "SysBP", "DiaBP", "TenYearCHD"]
@@ -168,7 +168,7 @@ if len(preferred_pairplot_cols) >= 2:
 else:
     print("Not enough selected numeric columns are available for a pairplot.")  
 
-    # 12. Simple target-wise summary (if target column exists)
+# 12. Simple target-wise summary (if target column exists)
 if "TenYearCHD" in df.columns:  
     print("Average numeric values grouped by TenYearCHD:")  
     display(df.groupby("TenYearCHD")[numeric_df.columns].mean())  
